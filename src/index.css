@@ -1,0 +1,334 @@
+body {
+  background-color: #111111;
+}
+
+.bg-dark {
+  background-color: #111111 !important;
+}
+
+.btn-primary{
+  background-color: #00abc0;
+  border: solid 1px #00abc0;
+}
+
+.btn-primary:hover, .btn-primary:active{
+  background-color: #1092a3 !important;
+  border: solid 1px #1092a3 !important;
+}
+
+.text-light-grey {
+  color: lightgrey;
+}
+
+.form-control::placeholder {
+  color: grey;
+}
+
+a {
+  text-decoration: none;
+}
+
+.text-truncate-multiline {
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+@media (max-width: 768px) {
+  .text-truncate-multiline {
+    display: none;
+  }
+}
+
+.text-bg-primary {
+  background-color: #00abc0 !important;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: white;
+}
+
+/* Navbar */
+
+.menu a {
+  color: #777876;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  color: #00acc1;
+}
+
+#searchContext .form-control {
+  border: hidden;
+}
+
+#searchContext .input-group-text {
+  border-color: transparent;
+}
+
+#searchContext .input-group:focus-within .form-control {
+  border: solid 1px white;
+  border-left: none;
+  border-right: none;
+}
+
+#searchContext .input-group:focus-within .input-group-text {
+  border-color: white;
+}
+
+.user-dropdown .dropdown-item:hover,
+.user-dropdown .dropdown-item:active {
+  background-color: #1092a3 !important;
+  color: white !important; /* Adjust text color for visibility */
+}
+
+#mobileMenu a:hover {
+  color: #00acc1 !important;
+}
+
+#mobileMenu .active-link {
+  color: #00acc1 !important;
+}
+
+.scrolled{
+  background-color: green;
+}
+
+/* HeroSlide */
+.carousel-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.8)
+  );
+  z-index: 0;
+}
+
+.carousel-item:hover {
+  cursor: pointer;
+}
+
+.hero-slide {
+  height: 26rem; /* Default height for small screens */
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-position: center;
+  /* Background gradient */
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.2)
+  );
+
+  /* Responsive height adjustments */
+}
+
+@media (min-width: 640px) {
+  /* Small screens (sm) */
+  .hero-slide {
+    height: 33rem;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Medium screens (md) */
+  .hero-slide {
+    height: 36rem;
+  }
+}
+
+/* The pseudo-element for gradient overlay */
+.hero-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+}
+
+.slide img {
+  object-fit: cover;
+}
+
+.carousel-item {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+/* Apply styles when screen width is smaller than 576px (Bootstrap 'sm' breakpoint) */
+@media (max-width: 575.98px) {
+  .carousel-caption {
+    top: 75%;
+    transform: translateY(-50%);
+    bottom: initial;
+  }
+}
+
+/* Movie list */
+.movie-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 0.5rem !important;
+}
+
+/* Breakpoints for dimension of slider with movies */
+.list-movies {
+  max-width: 50%;
+}
+@media (min-width: 576px) {
+  .list-movies {
+    max-width: 40%;
+  }
+}
+@media (min-width: 768px) {
+  .list-movies {
+    max-width: 30%;
+  }
+}
+@media (min-width: 1200px) {
+  .list-movies {
+    max-width: 25%;
+  }
+}
+@media (min-width: 1400px) {
+  .list-movies {
+    max-width: 20%;
+  }
+}
+
+.movie-card {
+  overflow: hidden; /* Ensures zoomed content doesn't overflow */
+  display: inline-block;
+  position: relative;
+  border-radius: 0.5rem;
+}
+
+.movie-card:hover{
+  cursor: pointer;
+}
+
+.movie-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.4); /* Initial dark overlay */
+  border-radius: 0.5rem;
+  transition: background .3s ease; /* Smooth transition */
+}
+
+.movie-card:hover::after {
+  background: rgba(0, 0, 0, 0.6); /* Darker overlay on hover */
+}
+
+.movie-card img {
+  transition: transform .3s ease;
+  width: 100%; /* Ensures the image fills the card */
+}
+
+.movie-card:hover img {
+  transform: scale(1.1); /* Zooms in the image */
+}
+
+/* Dropdown */
+.dropdown-menu .dropdown-element:hover{
+  background-color: #16181B;
+  transition: 0.5s;
+}
+
+.dropdown .dropdown-element, label, input:hover{
+  cursor: pointer;
+}
+
+.dropdown-item{
+  width: 75%;
+}
+@media (max-width: 576px) {
+  .dropdown-menu{
+    width: 80%;
+  }
+}
+@media (min-width: 768px) {
+  .dropdown-menu{
+    width: 50%;
+  }
+}
+
+/* Detail page */
+
+.detail{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.main-detail .detail {
+  padding-top: 6rem;
+  padding-bottom: 1rem;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.main-detail .detail::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(to top, #111111, rgba(0, 0, 0, 0.1)),
+    linear-gradient(to bottom, #111111, rgba(0, 0, 0, 0.1));
+}
+
+.genre-btn{
+  background-color: transparent;
+}
+
+.btn-more-info{
+  color: #4B4B57;
+  border: none;
+  border-bottom: solid 5px transparent;
+}
+
+.btn-more-info:hover{
+  border-bottom: solid 5px white;
+}
+
+.btn-more-info-active, .btn-more-info:hover{
+  border-bottom: solid 5px white;
+  color: white !important;
+}
+
+.dropdown-seasons .dropdown-item:active{
+  background-color: #52575C !important;
+}
+
+.card-episode:hover{
+  cursor: pointer;
+}
