@@ -1,0 +1,569 @@
+[
+    {
+        "name": "Un, due, tre, stella",
+        "season": 1,
+        "episode": 1,
+        "description": "Disperato e al verde, Gi-hun accetta di partecipare a un gioco misterioso sperando in un guadagno facile... ma presto durante il primo turno si svelano orrori inattesi.",
+        "duration": 44,
+        "images": [
+            {
+                "id": 40494,
+                "filename": "2f6a4b70-9a03-4d3f-84c0-e1f6198164e5.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25568,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:17.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25568",
+        "scws_id": 248369
+    },
+    {
+        "name": "Inferno",
+        "season": 1,
+        "episode": 2,
+        "description": "Indecisi se continuare e abbandonare, il gruppo organizza una votazione... ma la realt\u00e0 che li aspetta nel mondo esterno potrebbe dimostrarsi spietata quanto il gioco.",
+        "duration": 43,
+        "images": [
+            {
+                "id": 40495,
+                "filename": "1c5d6d40-ddad-4c95-9d62-7ccdb501f5be.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25569,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:17.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25569",
+        "scws_id": 248370
+    },
+    {
+        "name": "L'uomo con l'ombrello",
+        "season": 1,
+        "episode": 3,
+        "description": "Alcuni giocatori passano al turno successivo, che promette di essere altrettanto letale nonostante qualche vantaggio insperato. Jun-ho si intrufola all'interno.",
+        "duration": 43,
+        "images": [
+            {
+                "id": 40496,
+                "filename": "15680acb-823b-47a3-94ad-43317d89c81c.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25570,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:18.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25570",
+        "scws_id": 248371
+    },
+    {
+        "name": "Non si abbandona la squadra",
+        "season": 1,
+        "episode": 4,
+        "description": "Tra i giocatori si formano alleanze, ma durante la notte nessuno \u00e8 al sicuro nel dormitorio. Nella terza sfida, la squadra di Gi-hun deve elaborare una strategia.",
+        "duration": 49,
+        "images": [
+            {
+                "id": 40497,
+                "filename": "85c70867-3fde-4fa7-9bb6-b4cc35cb79f7.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25571,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:18.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25571",
+        "scws_id": 248372
+    },
+    {
+        "name": "Un mondo giusto",
+        "season": 1,
+        "episode": 5,
+        "description": "Gi-hun e il suo team fanno la guardia a turno per la notte. Gli uomini mascherati si ritrovano in difficolt\u00e0 con i loro alleati.",
+        "duration": 42,
+        "images": [
+            {
+                "id": 40498,
+                "filename": "051cb686-e44e-424a-9413-31870f059939.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25572,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:18.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25572",
+        "scws_id": 248373
+    },
+    {
+        "name": "Gganbu",
+        "season": 1,
+        "episode": 6,
+        "description": "I giocatori finiscono il quarto round in pareggio. Gi-hun affronta un dilemma etico, Sang-woo sceglie la sopravvivenza e Sae-byeok racconta la sua storia segreta.",
+        "duration": 42,
+        "images": [
+            {
+                "id": 40499,
+                "filename": "66ca698f-8da8-4c6f-9ddf-8254c9af5f70.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25573,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:18.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25573",
+        "scws_id": 248374
+    },
+    {
+        "name": "I VIP",
+        "season": 1,
+        "episode": 7,
+        "description": "Il leader mascherato accoglie gli ospiti VIP nello stabile dove potranno assistere allo show in prima fila. Nel quinto round alcuni giocatori non reggono allo stress.",
+        "duration": 43,
+        "images": [
+            {
+                "id": 40500,
+                "filename": "676ce42b-3635-420f-a4f2-3502e8364df3.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25574,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:18.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25574",
+        "scws_id": 248375
+    },
+    {
+        "name": "Front man",
+        "season": 1,
+        "episode": 8,
+        "description": "Prima dell'ultimo round, i finalisti sono in preda al disgusto e alla sfiducia. Jun-ho cerca di scappare per denunciare i sordidi segreti del gioco.",
+        "duration": 43,
+        "images": [
+            {
+                "id": 40501,
+                "filename": "202a7381-1342-4a40-95da-92abfe644b4c.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25575,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:18.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25575",
+        "scws_id": 248376
+    },
+    {
+        "name": "Un giorno fortunato",
+        "season": 1,
+        "episode": 9,
+        "description": "L'ultimo round ha in serbo un'altra prova crudele, ma questa volta il risultato dipende tutto da un solo giocatore. Il creatore del gioco esce dall'ombra.",
+        "duration": 40,
+        "images": [
+            {
+                "id": 40502,
+                "filename": "4db83114-1a62-4968-82e4-e671c205fc53.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25576,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:19.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25576",
+        "scws_id": 248377
+    },
+    {
+        "name": "Un, due, tre, stella",
+        "season": 2,
+        "episode": 1,
+        "description": "Disperato e al verde, Gi-hun accetta di partecipare a un gioco misterioso sperando in un guadagno facile... ma presto durante il primo turno si svelano orrori inattesi.",
+        "duration": 44,
+        "images": [
+            {
+                "id": 40494,
+                "filename": "2f6a4b70-9a03-4d3f-84c0-e1f6198164e5.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25568,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:17.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25568",
+        "scws_id": 248369
+    },
+    {
+        "name": "Inferno",
+        "season": 2,
+        "episode": 2,
+        "description": "Indecisi se continuare e abbandonare, il gruppo organizza una votazione... ma la realt\u00e0 che li aspetta nel mondo esterno potrebbe dimostrarsi spietata quanto il gioco.",
+        "duration": 43,
+        "images": [
+            {
+                "id": 40495,
+                "filename": "1c5d6d40-ddad-4c95-9d62-7ccdb501f5be.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25569,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:17.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25569",
+        "scws_id": 248370
+    },
+    {
+        "name": "L'uomo con l'ombrello",
+        "season": 2,
+        "episode": 3,
+        "description": "Alcuni giocatori passano al turno successivo, che promette di essere altrettanto letale nonostante qualche vantaggio insperato. Jun-ho si intrufola all'interno.",
+        "duration": 43,
+        "images": [
+            {
+                "id": 40496,
+                "filename": "15680acb-823b-47a3-94ad-43317d89c81c.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25570,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:18.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25570",
+        "scws_id": 248371
+    },
+    {
+        "name": "Non si abbandona la squadra",
+        "season": 2,
+        "episode": 4,
+        "description": "Tra i giocatori si formano alleanze, ma durante la notte nessuno \u00e8 al sicuro nel dormitorio. Nella terza sfida, la squadra di Gi-hun deve elaborare una strategia.",
+        "duration": 49,
+        "images": [
+            {
+                "id": 40497,
+                "filename": "85c70867-3fde-4fa7-9bb6-b4cc35cb79f7.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25571,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:18.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25571",
+        "scws_id": 248372
+    },
+    {
+        "name": "Un mondo giusto",
+        "season": 2,
+        "episode": 5,
+        "description": "Gi-hun e il suo team fanno la guardia a turno per la notte. Gli uomini mascherati si ritrovano in difficolt\u00e0 con i loro alleati.",
+        "duration": 42,
+        "images": [
+            {
+                "id": 40498,
+                "filename": "051cb686-e44e-424a-9413-31870f059939.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25572,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:18.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25572",
+        "scws_id": 248373
+    },
+    {
+        "name": "Gganbu",
+        "season": 2,
+        "episode": 6,
+        "description": "I giocatori finiscono il quarto round in pareggio. Gi-hun affronta un dilemma etico, Sang-woo sceglie la sopravvivenza e Sae-byeok racconta la sua storia segreta.",
+        "duration": 42,
+        "images": [
+            {
+                "id": 40499,
+                "filename": "66ca698f-8da8-4c6f-9ddf-8254c9af5f70.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25573,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:18.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25573",
+        "scws_id": 248374
+    },
+    {
+        "name": "I VIP",
+        "season": 2,
+        "episode": 7,
+        "description": "Il leader mascherato accoglie gli ospiti VIP nello stabile dove potranno assistere allo show in prima fila. Nel quinto round alcuni giocatori non reggono allo stress.",
+        "duration": 43,
+        "images": [
+            {
+                "id": 40500,
+                "filename": "676ce42b-3635-420f-a4f2-3502e8364df3.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25574,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:18.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25574",
+        "scws_id": 248375
+    },
+    {
+        "name": "Front man",
+        "season": 2,
+        "episode": 8,
+        "description": "Prima dell'ultimo round, i finalisti sono in preda al disgusto e alla sfiducia. Jun-ho cerca di scappare per denunciare i sordidi segreti del gioco.",
+        "duration": 43,
+        "images": [
+            {
+                "id": 40501,
+                "filename": "202a7381-1342-4a40-95da-92abfe644b4c.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25575,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:18.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25575",
+        "scws_id": 248376
+    },
+    {
+        "name": "Un giorno fortunato",
+        "season": 2,
+        "episode": 9,
+        "description": "L'ultimo round ha in serbo un'altra prova crudele, ma questa volta il risultato dipende tutto da un solo giocatore. Il creatore del gioco esce dall'ombra.",
+        "duration": 40,
+        "images": [
+            {
+                "id": 40502,
+                "filename": "4db83114-1a62-4968-82e4-e671c205fc53.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25576,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:19.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25576",
+        "scws_id": 248377
+    },
+    {
+        "name": "Un, due, tre, stella",
+        "season": 3,
+        "episode": 1,
+        "description": "Disperato e al verde, Gi-hun accetta di partecipare a un gioco misterioso sperando in un guadagno facile... ma presto durante il primo turno si svelano orrori inattesi.",
+        "duration": 44,
+        "images": [
+            {
+                "id": 40494,
+                "filename": "2f6a4b70-9a03-4d3f-84c0-e1f6198164e5.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25568,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:17.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25568",
+        "scws_id": 248369
+    },
+    {
+        "name": "Inferno",
+        "season": 3,
+        "episode": 2,
+        "description": "Indecisi se continuare e abbandonare, il gruppo organizza una votazione... ma la realt\u00e0 che li aspetta nel mondo esterno potrebbe dimostrarsi spietata quanto il gioco.",
+        "duration": 43,
+        "images": [
+            {
+                "id": 40495,
+                "filename": "1c5d6d40-ddad-4c95-9d62-7ccdb501f5be.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25569,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:17.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25569",
+        "scws_id": 248370
+    },
+    {
+        "name": "L'uomo con l'ombrello",
+        "season": 3,
+        "episode": 3,
+        "description": "Alcuni giocatori passano al turno successivo, che promette di essere altrettanto letale nonostante qualche vantaggio insperato. Jun-ho si intrufola all'interno.",
+        "duration": 43,
+        "images": [
+            {
+                "id": 40496,
+                "filename": "15680acb-823b-47a3-94ad-43317d89c81c.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25570,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:18.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25570",
+        "scws_id": 248371
+    },
+    {
+        "name": "Non si abbandona la squadra",
+        "season": 3,
+        "episode": 4,
+        "description": "Tra i giocatori si formano alleanze, ma durante la notte nessuno \u00e8 al sicuro nel dormitorio. Nella terza sfida, la squadra di Gi-hun deve elaborare una strategia.",
+        "duration": 49,
+        "images": [
+            {
+                "id": 40497,
+                "filename": "85c70867-3fde-4fa7-9bb6-b4cc35cb79f7.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25571,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:18.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25571",
+        "scws_id": 248372
+    },
+    {
+        "name": "Un mondo giusto",
+        "season": 3,
+        "episode": 5,
+        "description": "Gi-hun e il suo team fanno la guardia a turno per la notte. Gli uomini mascherati si ritrovano in difficolt\u00e0 con i loro alleati.",
+        "duration": 42,
+        "images": [
+            {
+                "id": 40498,
+                "filename": "051cb686-e44e-424a-9413-31870f059939.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25572,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:18.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25572",
+        "scws_id": 248373
+    },
+    {
+        "name": "Gganbu",
+        "season": 3,
+        "episode": 6,
+        "description": "I giocatori finiscono il quarto round in pareggio. Gi-hun affronta un dilemma etico, Sang-woo sceglie la sopravvivenza e Sae-byeok racconta la sua storia segreta.",
+        "duration": 42,
+        "images": [
+            {
+                "id": 40499,
+                "filename": "66ca698f-8da8-4c6f-9ddf-8254c9af5f70.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25573,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:18.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25573",
+        "scws_id": 248374
+    },
+    {
+        "name": "I VIP",
+        "season": 3,
+        "episode": 7,
+        "description": "Il leader mascherato accoglie gli ospiti VIP nello stabile dove potranno assistere allo show in prima fila. Nel quinto round alcuni giocatori non reggono allo stress.",
+        "duration": 43,
+        "images": [
+            {
+                "id": 40500,
+                "filename": "676ce42b-3635-420f-a4f2-3502e8364df3.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25574,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:18.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25574",
+        "scws_id": 248375
+    },
+    {
+        "name": "Front man",
+        "season": 3,
+        "episode": 8,
+        "description": "Prima dell'ultimo round, i finalisti sono in preda al disgusto e alla sfiducia. Jun-ho cerca di scappare per denunciare i sordidi segreti del gioco.",
+        "duration": 43,
+        "images": [
+            {
+                "id": 40501,
+                "filename": "202a7381-1342-4a40-95da-92abfe644b4c.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25575,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:18.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25575",
+        "scws_id": 248376
+    },
+    {
+        "name": "Un giorno fortunato",
+        "season": 3,
+        "episode": 9,
+        "description": "L'ultimo round ha in serbo un'altra prova crudele, ma questa volta il risultato dipende tutto da un solo giocatore. Il creatore del gioco esce dall'ombra.",
+        "duration": 40,
+        "images": [
+            {
+                "id": 40502,
+                "filename": "4db83114-1a62-4968-82e4-e671c205fc53.webp",
+                "type": "cover",
+                "imageable_type": "episode",
+                "imageable_id": 25576,
+                "created_at": "2023-05-18T13:03:10.000000Z",
+                "updated_at": "2023-05-18T16:56:19.000000Z",
+                "original_url_field": null
+            }
+        ],
+        "url": "ParseResult(scheme='https', netloc='StreamingCommunity.paris', path='', params='', query='', fragment='')/watch/4287?e=25576",
+        "scws_id": 248377
+    }
+]

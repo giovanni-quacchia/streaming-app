@@ -409,7 +409,7 @@ class API:
             self._url.geturl()
             + "/watch/"
             + str(content_id)
-            + ("" if episode_id is None else ("?e=" + str(episode_id)))
+            + ("" if episode_id is None else ("&e=" + str(episode_id)))
         )
 
         # Extract information from data-page attribute
