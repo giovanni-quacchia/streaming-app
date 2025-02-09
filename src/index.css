@@ -336,3 +336,44 @@ a {
 .card-episode:hover{
   cursor: pointer;
 }
+
+/* Episode card scrollbar */
+
+#style-4::-webkit-scrollbar-track
+{
+  
+}
+
+#style-4::-webkit-scrollbar
+{
+  width: 0.1em;
+  background-color: auto;
+}
+
+#style-4::-webkit-scrollbar-thumb
+{
+  background-color: white;
+}
+
+/* Play animation */
+@keyframes zoomEffect {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* Play animation */
+body {
+  overflow-x:hidden;
+  transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
+}
+
+.playing {
+  animation: zoomEffect 1.5s forwards;
+}
+

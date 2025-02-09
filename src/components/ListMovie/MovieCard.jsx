@@ -19,7 +19,7 @@ export default function MovieCard({ data, className, media_type }) {
     if(data.length != 0){
       return {
         name: data.title || data.name,
-        link_name: (data.title || data.name).toLowerCase().replaceAll(" ", "-"),
+        link_name: (data.original_title || data.original_name).toLowerCase().replaceAll(" ", "-"),
         date: data.release_date || data.first_air_date,
         year: new Date(data.release_date || data.first_air_date).getFullYear(),
         vote: data.vote_average.toFixed(1),
@@ -29,7 +29,7 @@ export default function MovieCard({ data, className, media_type }) {
     } else {
       return []
     }
-  }, [data]);
+  }, [data, media_type]);
 
   return (
     <Link

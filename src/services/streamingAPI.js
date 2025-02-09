@@ -1,11 +1,17 @@
 import { axiosInstance_STREAMING } from "./axiosInstance";
 
 const streamingAPI = {
-    getMovieLink: (movie) => {
-        return axiosInstance_STREAMING.get(`movies/${movie}`)
+    getContentSlug: (name) => {
+        return axiosInstance_STREAMING.get(`content/${name}`)
     },
-    getEpisodeLink: (tv, season, episode) => {
-        return axiosInstance_STREAMING.get(`tv/${tv}/${season}/${episode}`)
+    getMovieLink: (slug) => {
+        return axiosInstance_STREAMING.get(`movies/${slug}`)
+    },
+    getSeasonIds: (slug, season_number) => {
+        return axiosInstance_STREAMING.get(`tv/${slug}/seasons/${season_number}`)
+    },
+    getEpisodeLink: (slug, episode_id) => {
+        return axiosInstance_STREAMING.get(`tv/${slug}/episodes/${episode_id}`)
     }
 }
 

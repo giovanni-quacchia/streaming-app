@@ -17,7 +17,7 @@ const axiosInstance_TMDB = axios.create({
 
 const axiosInstance_STREAMING = axios.create({
   baseURL: STREAMING_API_URL,
-  timeout: 1000,
+  timeout: 5000,
   headers: { "Content-Type": "application/json" },
 });
 

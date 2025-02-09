@@ -174,11 +174,15 @@ class API:
         # Extract the search results
         try:
             search_results = document.json()["data"]
+            if not search_results:
+                raise MatchNotFound(query)
             output_dict = search_results[0] # NOTE: update, just return first value
             # output_dict = {}
             # for result in search_results:
             #     result["url"] = f"{self._url}/titles/{result['id']}-{result['slug']}"
             #     output_dict[result["name"]] = result
+        except MatchNotFound as e:
+            raise MatchNotFound(query) from e
         except Exception as e:
             raise InvalidJSON(query, e, document) from e
 
@@ -221,6 +225,7 @@ class API:
             raise InvalidJSON(content_slug, e, data) from e
         return data_dict
 
+    # NOTE: currently returns only episodes for tv-series
     def load(self, content_slug, season_number = None):
         """
         Carica informazioni dettagliate su un elemento specifico in base al suo URL.
@@ -293,17 +298,18 @@ class API:
 
             name = props["title"]["name"]
 
-            # NOTE: download just one season if required
-            if season_number == None:
-                seasons = props["title"]["seasons"]
-            else:
-                seasons = [season for season in props["title"]["seasons"] if season["number"] == season_number]
+            seasons = props["title"]["seasons"]
 
             seasons_count = int(props["title"]["seasons_count"])
 
             episode_list = []
             for se in seasons:
                 season = int(se["number"])
+
+                # NOTE: download just one season if required
+                if se["number"] != season_number:
+                    continue
+
                 se_url = f"{url}/stagione-{season}"
                 try:
                     resp = self._wbpage_as_text(se_url)
@@ -321,8 +327,8 @@ class API:
                        
                         "season": season,
                         "episode": int(ep["number"]),
-                        "url": href,
-                        "id": href.split("?e=")[1]
+                        # "url": href,
+                        "id": int(href.split("?e=")[1])
                     }
                     episode_list.append(episode)
 
@@ -445,6 +451,7 @@ class API:
                 ).replace("'", '"'),
             )
         )
+        
         streams = json.loads(
             self._html_regex(
                 r"window\.streams[^=]+=[^[](\[.*\])",

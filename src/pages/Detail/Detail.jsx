@@ -11,13 +11,14 @@ import GenresList from "./GenresList";
 import PlayBtns from "./PlayBtns";
 import MoreInfo from "./MoreInfo";
 import Spinner from "../../components/Placeholders/Spinner";
+import streamingAPI from "../../services/streamingAPI";
 
 Detail.propTypes = {
   media_type: PropTypes.string,
 };
 
 export default function Detail({ media_type }) {
-  const { id } = useParams();
+  const { id, name } = useParams();
 
   // Set navbar fixed on top
   useEffect(() => {
@@ -32,6 +33,14 @@ export default function Detail({ media_type }) {
     };
   }, []);
 
+  // Get streaming slug
+  const streamingSlugQuery = useQuery({
+    queryKey: ["streamingSlug", name],
+    queryFn: () => streamingAPI.getContentSlug(name)
+  });
+  const streamingSlug = streamingSlugQuery.data?.data.link
+
+  // Details and cast queries
   const detailsQuery = useQuery({
     queryKey: [`details-${media_type}`, id],
     queryFn: () => tmdbAPI.getDetail(media_type, +id),
@@ -42,6 +51,7 @@ export default function Detail({ media_type }) {
     queryFn: () => tmdbAPI.getCast(media_type, +id),
   });
 
+  // details and cast data
   const details = useMemo(() => {
     const data = detailsQuery.data?.data;
     return {
@@ -53,7 +63,7 @@ export default function Detail({ media_type }) {
       last_release: new Date(data?.last_air_date).getFullYear(),
       stars: parseFloat(data?.vote_average.toFixed(2)),
     };
-  });
+  }, [detailsQuery]);
 
   const cast = useMemo(() => {
     return {
@@ -63,10 +73,10 @@ export default function Detail({ media_type }) {
       ),
       creator: media_type === "tv" && detailsQuery.data?.data.created_by[0],
     };
-  });
+  }, [castQuery, detailsQuery, media_type]);
 
   if (detailsQuery.isLoading || castQuery.isLoading)
-    return <Spinner />
+    return <Spinner className="position-absolute top-0 w-100 h-100" />
 
   return (
     <div className="main-detail">
@@ -120,7 +130,7 @@ export default function Detail({ media_type }) {
                   <p className="fs-5 mb-0">{details.tagline}</p>
                 </div>
                 {/* Play buttons */}
-                <PlayBtns media_type={media_type} name={details.name} className="mt-auto" />
+                <PlayBtns streamingSlug={streamingSlug} media_type={media_type} name={details.name} className="mt-auto" />
                 {/* Cast, generes info */}
                 <div className="mt-4" style={{ color: "lightgrey" }}>
                   {/* <p className="mb-0">
@@ -140,7 +150,7 @@ export default function Detail({ media_type }) {
       </div>
       {/* More info and related content */}
       <Wrapper>
-        <MoreInfo media_type={media_type} data={{ ...details, cast }} />
+        <MoreInfo streamingSlug={streamingSlug} media_type={media_type} data={{ ...details, cast }} />
       </Wrapper>
     </div>
   );
