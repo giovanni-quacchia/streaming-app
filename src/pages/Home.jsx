@@ -7,6 +7,7 @@ import GridContainer from "../components/GridContainer/GridContainer";
 import MovieCard from "../components/ListMovie/MovieCard";
 import { useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
+import Spinner from "../components/Placeholders/Spinner";
 
 export default function Home() {
   // Set navbar fixed on top
@@ -16,10 +17,10 @@ export default function Home() {
       navbar.classList.add("position-fixed", "top-0");
     }
     return () => {
-      if (navbar){
+      if (navbar) {
         navbar.classList.remove("position-fixed", "top-0");
       }
-    }
+    };
   }, []);
 
   const sections = [
@@ -78,6 +79,11 @@ export default function Home() {
     ];
   });
 
+  const sectionsLoading = sections.some(({ query }) => query.isLoading);
+  const moviesTvLoading = movies_tv_query.some((query) => query.isLoading);
+  if (sectionsLoading || moviesTvLoading)
+    return <Spinner className="min-vh-100" />;
+
   return (
     <>
       <HeroSlide></HeroSlide>
@@ -104,17 +110,18 @@ export default function Home() {
               </Link>
             </div>
 
-            <GridContainer className="justify-content-around">
-              {data.data.map((content, _) => {
-                return (
-                  <div
-                    key={`${content.title}-${content.id}`}
-                    className="list-movies py-md-4 p-2"
-                  >
-                    <MovieCard data={content} media_type={index === 0 ? "movie" : "tv"} />
-                  </div>
-                );
-              })}
+            <GridContainer className="">
+              {data.data.map((content, _) => (
+                <div
+                  key={`${content.title}-${content.id}`}
+                  className="list-movies px-2 py-1"
+                >
+                  <MovieCard
+                    data={content}
+                    media_type={index === 0 ? "movie" : "tv"}
+                  />
+                </div>
+              ))}
             </GridContainer>
           </Wrapper>
         </section>

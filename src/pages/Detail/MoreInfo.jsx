@@ -55,7 +55,7 @@ export default function MoreInfo({ media_type, data }) {
       )}
       {page === "details" && <Details data={data} />}
       {page === "recommends" && <Recommends media_type={media_type} />}
-      {page === "episodes" && <Episodes media_type={media_type} data={data.seasons} />}
+      {page === "episodes" && <Episodes media_type={media_type} data={data.seasons} name={data.name} />}
     </div>
   );
 }

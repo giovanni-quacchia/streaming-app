@@ -1,30 +1,29 @@
 #!/usr/bin/env python3
 
 import sys
-import json
 from scuapi import API
 
 sc = API('StreamingCommunity.paris')
 
-def getEpisodes(name, tv):
+def getSeasonEpisodes(name, tv):
     [season, episode] = tv
     res = sc.search(name)
     id, slug = res["id"], res["slug"]
-
+    
     # check if season available
     if season > res["seasons_count"]:
         raise Exception("Season unavailable")
 
-    episodes = sc.load(f"{str(id)}-{slug}")
-    print(f"{str(id)}-{slug}")
-    #print(json.dumps(episodes, indent=4))
+    episodes = sc.load(f"{str(id)}-{slug}", season)
+    link = sc.get_links(id, episodes[episode-1]["id"])[0]
+    return link
+
     
 def getMovieLink(name):
     res = sc.search(name)
     id, slug = res["id"], res["slug"]
-    url = sc.get_links(id)[1]
+    url = sc.get_links(id)[0]
     return (slug, url)
-
 
 def getInput():
     
@@ -50,11 +49,6 @@ def getInput():
     return content, [int(e) for e in tv]
 
 def main():
-    
-    episodes = sc.load("4287-squid-game")["episodeList"]
-    with open("./test.json", 'w') as file:
-        json.dump(episodes, file, indent=4)  # 'indent' is optional for formatting the JSON
-    return
     try:
         content, tv = getInput() # [media_type, content_name], [num_season, ep_season]
         
@@ -62,8 +56,8 @@ def main():
             (name, url) = getMovieLink(content[1])
             return url
         
-        getEpisodes(content[1], tv)
-        
+        links = getSeasonEpisodes(content[1], tv)
+        return links
 
     except Exception as e:
         print(f"Error: {e}")

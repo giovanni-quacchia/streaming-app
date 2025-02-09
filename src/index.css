@@ -2,6 +2,10 @@ body {
   background-color: #111111;
 }
 
+.text-primary{
+  color: #04ABC1 !important;
+}
+
 .bg-dark {
   background-color: #111111 !important;
 }
@@ -197,12 +201,12 @@ a {
 }
 @media (min-width: 576px) {
   .list-movies {
-    max-width: 40%;
+    max-width: 50%;
   }
 }
 @media (min-width: 768px) {
   .list-movies {
-    max-width: 30%;
+    max-width: 25%;
   }
 }
 @media (min-width: 1200px) {

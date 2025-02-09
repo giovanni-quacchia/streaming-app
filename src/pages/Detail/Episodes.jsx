@@ -5,7 +5,7 @@ import tmdbAPI from "../../services/tmdbAPI";
 import SeasonsDropdown from "./SeasonsDropdown";
 import SwiperEpisodes from "./SwiperEpisodes";
 
-export default function Episodes({ data }) {
+export default function Episodes({ data, name }) {
   const { id } = useParams();
   const [season, setSeason] = useState(1);
 
@@ -18,8 +18,6 @@ export default function Episodes({ data }) {
     SeasonsQuery.data?.data.episodes.filter((ep) => ep.still_path != null)
   );
 
-  console.log(episodes);
-
   return (
     <div className="text-white mb-5">
       <div className="d-flex flex-row justify-content-between mb-4">
@@ -31,7 +29,7 @@ export default function Episodes({ data }) {
         />
       </div>
       <div>
-        <SwiperEpisodes episodes={episodes} />
+        <SwiperEpisodes name={name} episodes={episodes} />
       </div>
     </div>
   );

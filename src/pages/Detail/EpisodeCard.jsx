@@ -1,8 +1,21 @@
 import { useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { FaPlay } from "react-icons/fa";
+import { useQuery } from "@tanstack/react-query";
+import streamingAPI from "../../services/streamingAPI";
 
-export default function EpisodeCard({ episode }) {
+export default function EpisodeCard({ name, episode }) {
+
+  const link = useQuery({
+    queryKey: [`episode-${name}-${episode.season_number}-${episode.episode_number}`],
+    queryFn: () => streamingAPI.getEpisodeLink(name, episode.season_number, episode.episode_number)
+  });
+
+  const handleMoviePlay = () => {
+    link.refetch()
+    window.open(link.data?.data.link)      
+  }
+
   useEffect(() => {
     const playBtn = document.getElementById(
       `play-ep-${episode.episode_number}`
@@ -29,7 +42,8 @@ export default function EpisodeCard({ episode }) {
     <div
       id={`card-episode-${episode.episode_number}`}
       className="card-episode card border-0 user-select-none"
-      style={{ backgroundColor: "#111111" }}
+      style={{ backgroundColor: "#111111", maxHeight:"14em" }}
+      onClick={handleMoviePlay}
     >
       <div className="position-relative">
         <div
@@ -59,7 +73,7 @@ export default function EpisodeCard({ episode }) {
           {episode.episode_number}
         </div>
       </div>
-      <div className="card-body text-white px-0" style={{ fontSize: "70%" }}>
+      <div className="card-body text-white px-0 overflow-scroll" style={{ fontSize: "70%" }}>
         <p className="card-title fw-bold">{episode.name}</p>
         <p className="card-text" style={{ color: "grey" }}>
           {episode.overview}

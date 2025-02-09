@@ -174,10 +174,11 @@ class API:
         # Extract the search results
         try:
             search_results = document.json()["data"]
-            output_dict = {}
-            for result in search_results:
-                result["url"] = f"{self._url}/titles/{result['id']}-{result['slug']}"
-                output_dict[result["name"]] = result
+            output_dict = search_results[0] # NOTE: update, just return first value
+            # output_dict = {}
+            # for result in search_results:
+            #     result["url"] = f"{self._url}/titles/{result['id']}-{result['slug']}"
+            #     output_dict[result["name"]] = result
         except Exception as e:
             raise InvalidJSON(query, e, document) from e
 
@@ -220,7 +221,7 @@ class API:
             raise InvalidJSON(content_slug, e, data) from e
         return data_dict
 
-    def load(self, content_slug):
+    def load(self, content_slug, season_number = None):
         """
         Carica informazioni dettagliate su un elemento specifico in base al suo URL.
         Loads detailed information about a specific item by its URL.
@@ -292,7 +293,11 @@ class API:
 
             name = props["title"]["name"]
 
-            seasons = props["title"]["seasons"]
+            # NOTE: download just one season if required
+            if season_number == None:
+                seasons = props["title"]["seasons"]
+            else:
+                seasons = [season for season in props["title"]["seasons"] if season["number"] == season_number]
 
             seasons_count = int(props["title"]["seasons_count"])
 
@@ -301,7 +306,7 @@ class API:
                 season = int(se["number"])
                 se_url = f"{url}/stagione-{season}"
                 try:
-                    resp = self._wbpage_as_text(url)
+                    resp = self._wbpage_as_text(se_url)
                     se_data = json.loads(
                         self._html_regex(r'data-page="([\s\S]+})"', resp, "page data")
                     )
@@ -310,24 +315,22 @@ class API:
                 episodes = se_data["props"]["loadedSeason"]["episodes"]
                 sid = se["title_id"]
                 for ep in episodes:
-                    scws_id = ep["scws_id"]
                     href = f"{self._url}/watch/{sid}?e={ep['id']}"
 
                     episode = {
-                        "name": ep["name"],
+                       
                         "season": season,
                         "episode": int(ep["number"]),
-                        "description": ep["plot"],
-                        "duration": int(ep["duration"]),
-                        "images": ep["images"],
                         "url": href,
-                        "scws_id": scws_id,
+                        "id": href.split("?e=")[1]
                     }
                     episode_list.append(episode)
 
             if not episode_list:
                 raise NoSeasonFoundError(name)
 
+            return episode_list
+            
             return {
                 "name": name,
                 "url": url,
@@ -409,7 +412,7 @@ class API:
             self._url.geturl()
             + "/watch/"
             + str(content_id)
-            + ("" if episode_id is None else ("&e=" + str(episode_id)))
+            + ("" if episode_id is None else ("?e=" + str(episode_id)))
         )
 
         # Extract information from data-page attribute

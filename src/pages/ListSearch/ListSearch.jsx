@@ -9,6 +9,7 @@ import GridContainer from "../../components/GridContainer/GridContainer";
 import MovieCard from "../../components/ListMovie/MovieCard";
 // library that tells when an element enters or leaves the viewport
 import { useInView } from "react-intersection-observer";
+import Spinner from "../../components/Placeholders/Spinner";
 
 ListSearch.propTypes = {
   media_type: PropTypes.string,
@@ -20,14 +21,14 @@ export default function ListSearch({ media_type }) {
   // Set navbar sticky on top
   useEffect(() => {
     const navbar = document.getElementById("main-navbar");
-    if(navbar){
-      navbar.classList.add("position-sticky","top-0")
+    if (navbar) {
+      navbar.classList.add("position-sticky", "top-0");
     }
     return () => {
-      if (navbar){
+      if (navbar) {
         navbar.classList.remove("position-sticky", "top-0");
       }
-    }
+    };
   }, []);
 
   const params = useMemo(() => {
@@ -49,18 +50,19 @@ export default function ListSearch({ media_type }) {
     return params;
   }, [searchParams]);
 
-  const { data, status, fetchNextPage, isFetchingNextPage } = useInfiniteQuery({
-    queryKey: [`latest_${media_type}`, params],
-    queryFn: ({ pageParam = 1 }) =>
-      tmdbAPI.getDiscoverList(media_type, { ...params, page: pageParam }),
-    getNextPageParam: (lastPage) => {
-      const nextPage = lastPage.data.page + 1;
-      return nextPage <= 500 ? nextPage : undefined;
-    },
-    keepPreviousData: true,
-    retry: 2,
-  });
-  const { ref, inView } = useInView({ threshold: 0.1 });
+  const { data, status, fetchNextPage, isFetchingNextPage, isLoading } =
+    useInfiniteQuery({
+      queryKey: [`latest_${media_type}`, params],
+      queryFn: ({ pageParam = 1 }) =>
+        tmdbAPI.getDiscoverList(media_type, { ...params, page: pageParam }),
+      getNextPageParam: (lastPage) => {
+        const nextPage = lastPage.data.page + 1;
+        return nextPage <= 500 ? nextPage : undefined;
+      },
+      keepPreviousData: true,
+      retry: 2,
+    });
+  const { ref, inView } = useInView({ threshold: 0 });
 
   useEffect(() => {
     if (inView) fetchNextPage();
@@ -77,13 +79,8 @@ export default function ListSearch({ media_type }) {
     });
   };
 
-  // if (isError && error) {
-  //     if (axios.isAxiosError(error && (error).response?.status === 404)) {
-  //         return <Error404Page />
-  //     }
-
-  //     return <Error500Page />
-  // }
+  if (isLoading)
+    return <Spinner className="position-absolute top-0 w-100 h-100" />;
 
   return (
     <div className="text-white mt-4">
@@ -92,28 +89,24 @@ export default function ListSearch({ media_type }) {
           {media_type === "movie" ? "Movies" : "TV Shows"}
         </h2>
         <FilterBar media_type={media_type} handleFilter={handleOnFilter} />
-        {data?.pages.map((page, index) => (
-          <div key={`${media_type}-page-${index + 1}`}>
-            <GridContainer className="justify-content-around mb-3">
-              {page.data.results.map((content, _) => {
-                return (
-                  <div
-                    key={`${content.title}-${content.id}`}
-                    className={`list-movies py-md-4 p-2`}
-                  >
-                    <MovieCard data={content} media_type={media_type} />
-                  </div>
-                );
-              })}
-            </GridContainer>
-          </div>
-        ))}
+        <GridContainer className="mt-4">
+          {data?.pages.map((page, _) => {
+            return page.data.results.map((content, _) => (
+                <div
+                  key={`${content.title}-${content.id}`}
+                  className={`list-movies px-2 py-1`}
+                >
+                  <MovieCard data={content} media_type={media_type} />
+                </div>
+            ));
+          })}
+        </GridContainer>
         {isFetchingNextPage ? (
-          <div className="text-white">loading</div>
+          <Spinner className="" />
         ) : (
           <div
-            ref={ref}
             style={{ height: "50px", background: "transparent" }}
+            ref={ref}
           ></div>
         )}
       </Wrapper>

@@ -10,6 +10,7 @@ import StarsIcon from "../../components/Icons/StarsIcon";
 import GenresList from "./GenresList";
 import PlayBtns from "./PlayBtns";
 import MoreInfo from "./MoreInfo";
+import Spinner from "../../components/Placeholders/Spinner";
 
 Detail.propTypes = {
   media_type: PropTypes.string,
@@ -60,9 +61,12 @@ export default function Detail({ media_type }) {
       director: castQuery.data?.data.crew.find(
         (item) => item.known_for_department === "Directing"
       ),
-      creator: media_type === "tv" && detailsQuery.data?.data.created_by[0]
+      creator: media_type === "tv" && detailsQuery.data?.data.created_by[0],
     };
   });
+
+  if (detailsQuery.isLoading || castQuery.isLoading)
+    return <Spinner />
 
   return (
     <div className="main-detail">
@@ -116,7 +120,7 @@ export default function Detail({ media_type }) {
                   <p className="fs-5 mb-0">{details.tagline}</p>
                 </div>
                 {/* Play buttons */}
-                <PlayBtns className="mt-auto" />
+                <PlayBtns media_type={media_type} name={details.name} className="mt-auto" />
                 {/* Cast, generes info */}
                 <div className="mt-4" style={{ color: "lightgrey" }}>
                   {/* <p className="mb-0">
