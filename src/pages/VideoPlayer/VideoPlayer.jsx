@@ -1,73 +1,118 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
+import { useMemo, useRef, useState } from "react";
+import tmdbAPI from "../../services/tmdbAPI";
+import utils from "../../services/utils";
 import streamingAPI from "../../services/streamingAPI";
-import Spinner from "../../components/Placeholders/Spinner";
 import Hls from "hls.js";
-import { useEffect, useRef } from "react";
 
 export default function VideoPlayer() {
-  const { slug } = useParams();
+  const { id, season_number, episode_number, media_type } = useParams();
+  const [isStreaming, setIsStreaming] = useState(false);
 
-  // TV params
-  const { episode_id } = useParams();
-
-  const videoRef = useRef(null);
-  const linkQuery = useQuery({
-    queryKey: [`Streaming-${slug}`],
-    queryFn: () => episode_id ? streamingAPI.getEpisodeLink(slug,episode_id) : streamingAPI.getMovieLink(slug),
-    enabled: true,
+  const contentQuery = useQuery({
+    queryKey: ["content", id],
+    queryFn: () => tmdbAPI.getDetail(media_type, id),
   });
 
-  // Set HLS (Http livestreaming)
-  useEffect(() => {
-    const hls = new Hls();
+  const episodeQuery = useQuery({
+    queryKey: ["episode", id, season_number, episode_number],
+    queryFn: () => tmdbAPI.getEpisodeDetails(id, season_number, episode_number),
+    enabled: media_type === "tv",
+  });
 
-    if (Hls.isSupported() && videoRef.current) {
-      hls.loadSource(linkQuery.data?.data.link);
-      hls.attachMedia(videoRef.current);
-      hls.on(Hls.Events.MANIFEST_PARSED, function () {
-        videoRef.play();
-      });
-      
-    }
-    return () => {
-      // cleanup (when component destroyed or when useEffect runs twice on StrictMode)
-      hls.destroy();
+  const content = useMemo(() => {
+    const data = contentQuery.data?.data;
+    return {
+      name: data?.title || data?.original_name,
+      slug: utils.getSlug(data?.title ?? data?.original_name ?? ""), // ?? works as coalesce
+      episode_name: episodeQuery.data?.data.name || "",
     };
-  }, [linkQuery.data]);
+  }, [contentQuery.data, episodeQuery.data]);
 
-  if (linkQuery.isError)
-    return (
-      <div
-        className="d-flex justify-content-center align-items-center text-white fs-4"
-        style={{ minHeight: "100vh" }}
-      >
-        Error
-      </div>
-    ); // TODO: create error page
+  const local_path =
+    media_type === "movie"
+      ? `/videos/movies/${content?.slug}.mp4`
+      : `/videos/tv/${content?.slug}/S${season_number}/E${episode_number}.mp4`;
 
-  if (linkQuery.isLoading)
-    return <Spinner className="position-absolute top-0 w-100 h-100" />;
+  // streaming logic
+  // TODO: reasearch is not always correct (avengers)
+  const streamingIdQuery = useQuery({
+    queryKey: ["streaming", content?.slug],
+    queryFn: () => streamingAPI.getContentSlug(content?.slug),
+    enabled: !!content?.slug,
+  });
+  // TODO: adgjust for tv series too
+  const movieLinkQuery = useQuery({
+    queryKey: ["movieLink", streamingIdQuery.data?.data.link],
+    queryFn: () => streamingAPI.getMovieLink(streamingIdQuery.data?.data.link),
+    enabled: !!streamingIdQuery.data?.data.link,
+  });
+  const ext_link = movieLinkQuery.data?.data.link;
+  const videoRef = useRef(null);
+  const hlsRef = useRef(null);
+
+  const handleSrcChange = () => {
+    if (videoRef.current) {
+      if (isStreaming) {
+        // If switching to local video, destroy HLS instance first
+        if (hlsRef.current) {
+          hlsRef.current.destroy();
+          hlsRef.current = null;
+        }
+        videoRef.current.src = local_path;
+        videoRef.current.load(); // Ensure reloading of source
+        videoRef.current.play();
+      } else if (Hls.isSupported() && ext_link) {
+        // Destroy existing HLS instance before creating a new one
+        if (hlsRef.current) {
+          hlsRef.current.destroy();
+        }
+        const hls = new Hls();
+        hls.loadSource(ext_link);
+        hls.attachMedia(videoRef.current);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          videoRef.current.play();
+        });
+        hlsRef.current = hls;
+      }
+      setIsStreaming(!isStreaming);
+    }
+  };
 
   return (
-    <div className="d-flex justify-content-center overflow-hidden">
-      {/* <ReactPlayer
-        ref={videoRef}
-        url={linkQuery.data?.data.link}
-        controls={true}
-        width="100%"
-        height="100vh"
-      /> */}
+    <div
+      className="d-flex flex-column justify-content-center align-items-center text-white"
+      style={{ height: "100vh" }}
+    >
+      <div className="d-flex flex-row align-items-baseline mt-5">
+        <div
+          className="p-3 d-flex flex-column align-items-start flex-grow-1"
+          style={{ width: "50vw" }}
+        >
+          <h1>{content.name}</h1>
+          {media_type === "tv" && (
+            <span>{`S${season_number}:E${episode_number} - ${content.episode_name}`}</span>
+          )}
+        </div>
+        <div className="text-end" style={{ width: "20vw" }}>
+          <button className="btn btn-primary" onClick={handleSrcChange}>
+            {isStreaming ? "Streaming" : "Local"}{" "}
+          </button>
+        </div>
+      </div>
       <video
-        id="video"
-        width="100%"
-        controls
         ref={videoRef}
-        style={{ minHeight: "100vh" }}
-      ></video>
+        className="rounded-3 mb-4"
+        controls
+        style={{ width: "70vw" }}
+      />
+      <div
+        className="text-white p-3 d-flex flex-column align-items-start"
+        style={{ width: "70vw" }}
+      >
+        {!isStreaming && <p>Looking for file: {local_path}</p>}
+      </div>
     </div>
-    // <div className="bg-black text-white d-flex justify-content-center align-items-center" style={{minHeight:"100vh"}}>
-    //     ciao
-    // </div>
   );
 }
