@@ -2,7 +2,7 @@
 
 Web application for movies/tv-series information
 
-![Alt text](/README_IMGS/img1.png)
+![Alt text](/streaming-app/public/img1.png)
 
 ## Features
 
