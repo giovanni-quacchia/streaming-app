@@ -8,17 +8,15 @@ import { useEffect, useMemo } from "react";
 import RunTimeIcon from "../../components/Icons/RunTimeIcon";
 import StarsIcon from "../../components/Icons/StarsIcon";
 import GenresList from "./GenresList";
-import PlayBtns from "./PlayBtns";
 import MoreInfo from "./MoreInfo";
 import Spinner from "../../components/Placeholders/Spinner";
-import streamingAPI from "../../services/streamingAPI";
 
 Detail.propTypes = {
   media_type: PropTypes.string,
 };
 
 export default function Detail({ media_type }) {
-  const { id, name } = useParams();
+  const { id } = useParams();
 
   // Set navbar fixed on top
   useEffect(() => {
@@ -32,13 +30,6 @@ export default function Detail({ media_type }) {
       }
     };
   }, []);
-
-  // Get streaming slug
-  const streamingSlugQuery = useQuery({
-    queryKey: ["streamingSlug", name],
-    queryFn: () => streamingAPI.getContentSlug(name)
-  });
-  const streamingSlug = streamingSlugQuery.data?.data.link
 
   // Details and cast queries
   const detailsQuery = useQuery({
@@ -129,8 +120,6 @@ export default function Detail({ media_type }) {
                 <div className="mt-5">
                   <p className="fs-5 mb-0">{details.tagline}</p>
                 </div>
-                {/* Play buttons */}
-                <PlayBtns streamingSlug={streamingSlug} media_type={media_type} name={details.name} className="mt-auto" />
                 {/* Cast, generes info */}
                 <div className="mt-4" style={{ color: "lightgrey" }}>
                   {/* <p className="mb-0">
@@ -150,7 +139,7 @@ export default function Detail({ media_type }) {
       </div>
       {/* More info and related content */}
       <Wrapper>
-        <MoreInfo streamingSlug={streamingSlug} media_type={media_type} data={{ ...details, cast }} />
+        <MoreInfo media_type={media_type} data={{ ...details, cast }} />
       </Wrapper>
     </div>
   );

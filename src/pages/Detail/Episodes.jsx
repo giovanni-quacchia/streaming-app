@@ -5,14 +5,12 @@ import tmdbAPI from "../../services/tmdbAPI";
 import SeasonsDropdown from "./SeasonsDropdown";
 import SwiperEpisodes from "./SwiperEpisodes";
 import PropTypes from "prop-types";
-import streamingAPI from "../../services/streamingAPI";
 
 Episodes.propTypes = {
   data: PropTypes.array.isRequired,
-  streamingSlug: PropTypes.string,
 };
 
-export default function Episodes({ data, streamingSlug }) {
+export default function Episodes({ data }) {
   const { id } = useParams();
   const [season, setSeason] = useState(1);
 
@@ -22,23 +20,14 @@ export default function Episodes({ data, streamingSlug }) {
     queryFn: () => tmdbAPI.getSeason(id, season),
   });
 
-  // Retrieve Streaming ids for episodes
-  const seasonIdsQuery = useQuery({
-    queryKey: ["seasonIds", id, season],
-    queryFn: () => streamingAPI.getSeasonIds(streamingSlug, season),
-    enabled: !!streamingSlug,
-  });
-
   // Add streamingId to each episode
   const episodes = useMemo(
-    () => episodesQuery.data && seasonIdsQuery.data &&
+    () => episodesQuery.data &&
       episodesQuery.data?.data.episodes
         // .filter((ep) => ep.still_path != null)
-        .map((ep, index) => ({ ...ep, streamingId: seasonIdsQuery.data?.data.idS[index]?.id})),
-    [episodesQuery.data, seasonIdsQuery.data]
+        .map((ep) => ({ ...ep})),
+    [episodesQuery.data]
   );
-
-  console.log(seasonIdsQuery.data)
 
   return (
     <div className="text-white mb-5">
@@ -51,7 +40,7 @@ export default function Episodes({ data, streamingSlug }) {
         />
       </div>
       <div>
-        <SwiperEpisodes streamingSlug={streamingSlug} episodes={episodes} />
+        <SwiperEpisodes episodes={episodes} />
       </div>
     </div>
   );

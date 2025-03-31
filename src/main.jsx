@@ -12,7 +12,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import ListSearch from "./pages/ListSearch/ListSearch.jsx";
 import Home from "./pages/Home.jsx";
-import VideoPlayer from "./pages/VideoPlayer/VideoPlayer.jsx";
 
 const router = createBrowserRouter([
   {
@@ -49,14 +48,6 @@ const router = createBrowserRouter([
     path: "/tv-series",
     element: <App />,
   },
-  {
-    path: "player/:slug",
-    element: <VideoPlayer/>,
-  },
-  {
-    path: "player/:slug/:episode_id",
-    element: <VideoPlayer/>,
-  }
 ]);
 
 const queryClient = new QueryClient({});

@@ -2,28 +2,15 @@ import { useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { FaPlay } from "react-icons/fa";
 import PropTypes from "prop-types";
-import { useNavigate } from "react-router-dom";
 
 EpisodeCard.propTypes = {
   episode: PropTypes.object,
   streamingSlug: PropTypes.string,
 };
 
-export default function EpisodeCard({ episode, streamingSlug }) {
-  const navigate = useNavigate();
+export default function EpisodeCard({ episode }) {
 
   const { episode_number } = episode;
-
-  const handleMoviePlay = () => {
-    // animation
-    const body = document.body;
-    body.classList.add("playing");
-
-    setTimeout(() => {
-      navigate(`/player/${streamingSlug}/${episode.streamingId}`);
-      body.classList.remove("playing");
-    }, 1400);
-  };
 
   useEffect(() => {
     const playBtn = document.getElementById(`play-ep-${episode_number}`);
@@ -48,7 +35,6 @@ export default function EpisodeCard({ episode, streamingSlug }) {
       id={`card-episode-${episode_number}`}
       className="card-episode card border-0 user-select-none"
       style={{ backgroundColor: "#111111", maxHeight: "14em" }}
-      onClick={handleMoviePlay}
     >
       <div className="position-relative">
         <div

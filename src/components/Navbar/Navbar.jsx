@@ -2,9 +2,7 @@ import Wrapper from "../Wrapper";
 import Logo from "./Logo";
 import Search from "./Search";
 import { NavLink, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-import SignInBtn from "./SignInBtn";
-import UserDropDown from "./UserDropdown";
+import { useEffect } from "react";
 import MobileMenu from "./MobileMenu";
 import PropTypes from "prop-types";
 import ModalSearch from "./ModalSearch";
@@ -21,9 +19,6 @@ export default function Navbar({ className }) {
   ];
 
   const path = useLocation().pathname;
-
-  // TODO: use auth as a context to manage login-signup,...
-  const auth = useState({ isLogged: false });
 
   useEffect(() => {
     const navbar = document.getElementById("main-navbar");
@@ -65,7 +60,6 @@ export default function Navbar({ className }) {
 
           <div className="d-flex w-100 justify-content-end">
             <Search />
-            {!auth?.isLogged ? <SignInBtn /> : <UserDropDown />}
           </div>
         </Wrapper>
       </header>

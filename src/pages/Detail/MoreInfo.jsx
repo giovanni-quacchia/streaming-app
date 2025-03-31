@@ -8,10 +8,9 @@ import Episodes from "./Episodes";
 MoreInfo.propTypes = {
   data: PropTypes.object,
   media_type: PropTypes.string.isRequired,
-  streamingSlug: PropTypes.string
 };
 
-export default function MoreInfo({ media_type, data, streamingSlug }) {
+export default function MoreInfo({ media_type, data }) {
   const [page, setPage] = useState("overview");
   return (
     <div className="position-relative z-2 mb-5">
@@ -56,7 +55,7 @@ export default function MoreInfo({ media_type, data, streamingSlug }) {
       )}
       {page === "details" && <Details data={data} />}
       {page === "recommends" && <Recommends media_type={media_type} />}
-      {page === "episodes" && <Episodes streamingSlug={streamingSlug} media_type={media_type} data={data.seasons} />}
+      {page === "episodes" && <Episodes media_type={media_type} data={data.seasons} />}
     </div>
   );
 }

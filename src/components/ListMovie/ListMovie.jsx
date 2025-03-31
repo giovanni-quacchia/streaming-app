@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import PropTypes from "prop-types";
 import MovieCard from "./MovieCard";
 
-ListMovie.propType = {
+ListMovie.propTypes = {
   title: PropTypes.string,
   data: PropTypes.array,
   media_type: PropTypes.string
