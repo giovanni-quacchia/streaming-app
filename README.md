@@ -1,8 +1,24 @@
-# React + Vite
+# FreeStream
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Web application for movies/tv-series information
 
-Currently, two official plugins are available:
+![Alt text](/README_IMGS/img1.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- Homepage with hero slider with most recent movies and tv series
+- Movies and tv series pages where a content can be filtered by genre and provider (most well-known providers like netlfix, disney+, prime video)
+- Search bar available in the top navbar
+- Movie and tv series pages with details and recommendations.
+
+## Technologies used
+
+- React for fronted
+- AXIOS for HTTP requests to TMDB API
+- Relevant React hooks
+    - useQuery – Fetches, caches, and synchronizes data from the API.
+    - useMemo – Memoizes computed values to optimize performance, recalculating only when dependencies change.
+
+## Future improvements
+
+- Improving responsiveness for mobile devices

@@ -4,7 +4,7 @@
 - Simpler syntax & better readability
 */
 import axios from "axios";
-import { API_KEY, API_BASE_URL, STREAMING_API_URL } from "./APIconfig";
+import { API_KEY, API_BASE_URL } from "./APIconfig";
 
 const axiosInstance_TMDB = axios.create({
   baseURL: API_BASE_URL,
@@ -15,10 +15,4 @@ const axiosInstance_TMDB = axios.create({
   },
 });
 
-const axiosInstance_STREAMING = axios.create({
-  baseURL: STREAMING_API_URL,
-  timeout: 5000,
-  headers: { "Content-Type": "application/json" },
-});
-
-export {axiosInstance_TMDB, axiosInstance_STREAMING};
+export {axiosInstance_TMDB};
