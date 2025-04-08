@@ -4,8 +4,8 @@ Web application for movies/tv-series information
 
 ![Alt text](/public/img1.png)
 
-[Project link]([https://example.com](https://giovanni-quacchia.github.io/streaming-app/
-)
+[Project link](https://giovanni-quacchia.github.io/streaming-app/)
+
 ## Features
 
 - Homepage with hero slider with most recent movies and tv series
