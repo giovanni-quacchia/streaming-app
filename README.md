@@ -1,10 +1,8 @@
 # FreeStream
 
-Web application for movies/tv-series information
+Web application for movies/tv-series information: [Live demo](https://giovanni-quacchia.github.io/streaming-app/)
 
 ![Alt text](/public/img1.png)
-
-[Project link](https://giovanni-quacchia.github.io/streaming-app/)
 
 ## Features
 
